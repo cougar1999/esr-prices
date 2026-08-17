@@ -41,22 +41,27 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .logo-area { display: flex; align-items: center; gap: 10px; }
-    .logo-area img { height: 48px; width: auto; }
+    display: flex;
+    flex-direction: column;    /* Stack items vertically */
+    align-items: center;       /* Center horizontally */
+    text-align: center;
+    gap: 10px;                 /* Space between logo and badge */
+}
+    .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;                 /* Space between image and text */
+}
+    .logo-area img {
+    width: 150px;              /* Make it bigger – adjust as needed */
+    height: auto;
+}
     .logo-text { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
     .badge {
-      background: #eff6ff;
-      color: var(--primary);
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 500;
-    }
+    /* Optional: make badge smaller or change color */
+    font-size: 14px;
+    opacity: 0.8;
+}
     .hero { padding: 40px 0 30px; text-align: center; }
     .hero-photo2 {
       width: 140px; height: 140px;
