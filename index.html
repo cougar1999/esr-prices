@@ -34,7 +34,7 @@
     header {
       background: white;
       border-bottom: 1px solid var(--border);
-      padding: 12px 0;
+      padding: 16px 0;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -43,18 +43,13 @@
     .header-inner {
       display: flex;
       align-items: center;
-      justify-content: center;  /* <-- This centers everything! */
+      justify-content: center;
       gap: 12px;
     }
-    .logo-area img { height: 500px; width: auto; } /* <-- Bigger size! */
-    .logo-text { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
-    .badge {
-      background: #eff6ff;
-      color: var(--primary);
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 500;
+    .logo-area img {
+      height: 90px;
+      width: auto;
+      display: block;
     }
     .hero { padding: 40px 0 30px; text-align: center; }
     .hero-photo2 {
