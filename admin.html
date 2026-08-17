@@ -188,7 +188,7 @@
 
         if (error) throw error;
 
-        const fullLink = SITE_BASE + '/?token=' + token;
+        const fullLink = SITE_BASE + '/esr-prices/?token=' + token;
         document.getElementById('final-link').value = fullLink;
         document.getElementById('result').classList.add('active');
       } catch (err) {
