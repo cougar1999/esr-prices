@@ -82,7 +82,6 @@
       .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
       .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
       .accessory-row .accessory { grid-column: 2; }
-      .addon-card.centered-last { width: calc((100% - 48px) / 4); }
     }
     .card {
       background: var(--card);
@@ -158,6 +157,11 @@
       width: calc((100% - 16px) / 2);
       justify-self: center;
     }
+    @media (min-width: 640px) {
+      .addon-card.centered-last {
+        width: calc((100% - 48px) / 4);
+      }
+    }
     .article-card { border-top: 4px solid var(--accent-blue); }
     .contact-box {
       background: white;
@@ -188,7 +192,7 @@
     .social-btn.rg { color: #00d0a8; }
     .social-btn.bale { color: #00b894; }
     .social-btn .bale-logo {
-      width: 18px; height: 18px; object-fit: contain; flex: 0 0 auto;
+      width: 18px; height: 18px; display: block; flex: 0 0 auto;
     }
     footer {
       text-align: center; padding: 30px 16px;
@@ -473,7 +477,7 @@
           📞 <a href="tel:+989154957570">0915 495 7570</a>
         </p>
         <p class="contact-info">
-          ✉️ <a href="/cdn-cgi/l/email-protection#30555c4951430103070770575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="acc9c0d5cddf9d9f9b9beccbc1cdc5c082cfc3c1">[email&#160;protected]</span></a>
+          ✉️ <a id="contact-email" href="#" aria-label="ایمیل"></a>
         </p>
 
         <div class="socials">
@@ -482,7 +486,10 @@
             تلگرام: @esr_research_group_admin
           </a>
           <a href="https://ble.ir/esr_research_group_admin" target="_blank" rel="noopener noreferrer" class="social-btn bale">
-            <img class="bale-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bale_logo.png/64px-Bale_logo.png" alt="لوگوی بله" loading="lazy">
+            <svg class="bale-logo" viewBox="0 0 250 250" role="img" aria-label="لوگوی بله" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#12c7a4" d="M40 0C18 0 0 18 0 40v88c0 68 54 122 125 122 69 0 125-54 125-123C250 57 204 0 137 0c-26 0-48 9-66 24L40 0Z"/>
+              <path d="M58 126l47 45 87-88" fill="none" stroke="#fff" stroke-width="31" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             بله: @esr_research_group_admin
           </a>
           <a href="https://instagram.com/sadooghi_rad" target="_blank" class="social-btn ig">
@@ -532,7 +539,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // ==================== CONFIG ====================
     // بعد از ساخت پروژه Supabase این دو مقدار را جایگزین کنید
     const SUPABASE_URL = 'https://ukkekoyyqsvfnibakivv.supabase.co';
@@ -540,6 +547,19 @@
     // ================================================
 
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Build the email address at runtime to prevent CDN/Cloudflare email obfuscation
+    // from replacing it with an "[email protected]" protection link.
+    function renderContactEmail() {
+      const email = 'elyas1377' + '@' + 'gmail.com';
+      const emailLink = document.getElementById('contact-email');
+      if (emailLink) {
+        emailLink.textContent = email;
+        emailLink.href = 'mailto:' + email;
+      }
+    }
+
+    renderContactEmail();
 
     function openModal() {
       document.getElementById('modal').classList.add('active');
