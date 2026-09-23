@@ -81,6 +81,8 @@
       .cards-2 { grid-template-columns: 1fr 1fr; }
       .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
       .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+      .accessory-row .accessory { grid-column: 2; }
+      .addon-card.centered-last { width: calc((100% - 48px) / 4); }
     }
     .card {
       background: var(--card);
@@ -115,9 +117,12 @@
     .btn-silver:hover { background: #334155; }
     .btn-gold { background: #d97706; color: white; }
     .btn-gold:hover { background: #b45309; }
+    .btn-accessory { background: #7c3aed; color: white; }
+    .btn-accessory:hover { background: #6d28d9; }
     .card.bronze { border-top: 4px solid #b45309; }
     .card.silver { border-top: 4px solid #64748b; }
     .card.gold { border-top: 4px solid #d97706; }
+    .card.accessory { border-top: 4px solid #7c3aed; }
     .card .badge-pkg {
       display: inline-block; font-size: 0.78rem; font-weight: 600;
       padding: 3px 10px; border-radius: 6px; margin-bottom: 8px;
@@ -125,6 +130,8 @@
     .badge-bronze { background: #fef3c7; color: #92400e; }
     .badge-silver { background: #f1f5f9; color: #334155; }
     .badge-gold { background: #fef3c7; color: #b45309; }
+    .badge-accessory { background: #f3e8ff; color: #6b21a8; }
+    .accessory-row { margin-top: 8px; }
     .note {
       background: #fffbeb;
       border: 1px solid #fcd34d;
@@ -146,6 +153,11 @@
     .addon-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
     .addon-card .price { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
     .addon-card .btn { padding: 8px 12px; font-size: 0.85rem; }
+    .addon-card.centered-last {
+      grid-column: 1 / -1;
+      width: calc((100% - 16px) / 2);
+      justify-self: center;
+    }
     .article-card { border-top: 4px solid var(--accent-blue); }
     .contact-box {
       background: white;
@@ -174,6 +186,10 @@
     .social-btn.li { color: #0a66c2; }
     .social-btn.tw { color: #1da1f2; }
     .social-btn.rg { color: #00d0a8; }
+    .social-btn.bale { color: #00b894; }
+    .social-btn .bale-logo {
+      width: 18px; height: 18px; object-fit: contain; flex: 0 0 auto;
+    }
     footer {
       text-align: center; padding: 30px 16px;
       color: var(--muted); font-size: 0.82rem;
@@ -366,7 +382,21 @@
         <strong>توجه:</strong> نگارش پایان‌نامه پس از انجام آنالیز‌های آماری توسط کارشناس آماری شروع خواهد شد. بدیهی است که اگر طرح شما کارشناس آماری/استاد مشاور آماری نداشته باشد و نیازمند آنالیز آماری با SPSS باشید، هزینه این قیمت جداگانه محاسبه خواهد شد و به قیمت هر پکیج اضافه می‌شود.
       </div>
 
-      <div class="cards cards-4" style="margin-top: 8px;">
+      <div class="cards cards-3 accessory-row">
+        <div class="card accessory">
+          <span class="badge-pkg badge-accessory">🧩 پکیج اکسسوری</span>
+          <h3>خدمات تکمیلی پایان‌نامه</h3>
+          <div class="price">۲,۵۰۰,۰۰۰ تومان</div>
+          <ul>
+            <li>تهیه فایل مطابق با فرمت مورد قبول کتابخانه دانشگاه</li>
+            <li>ساخت اسلاید روز جلسه دفاع پایان‌نامه</li>
+            <li>نگارش پیش‌نویس مقاله</li>
+          </ul>
+          <button class="btn btn-accessory" onclick="openModal()">ثبت درخواست</button>
+        </div>
+      </div>
+
+      <div class="cards cards-4" style="margin-top: 16px;">
         <div class="addon-card">
           <h4>جواب داوری پایان‌نامه</h4>
           <div class="price">متغیر</div>
@@ -385,6 +415,11 @@
         <div class="addon-card">
           <h4>آنالیز آماری SPSS</h4>
           <div class="price">۲,۰۰۰,۰۰۰ تومان</div>
+          <button class="btn btn-silver" onclick="openModal()">ثبت درخواست</button>
+        </div>
+        <div class="addon-card centered-last">
+          <h4>پیش‌نویس مقاله</h4>
+          <div class="price">۱,۰۰۰,۰۰۰ تومان</div>
           <button class="btn btn-silver" onclick="openModal()">ثبت درخواست</button>
         </div>
       </div>
@@ -438,13 +473,17 @@
           📞 <a href="tel:+989154957570">0915 495 7570</a>
         </p>
         <p class="contact-info">
-          ✉️ <a href="mailto:elyas1377@gmail.com">elyas1377@gmail.com</a>
+          ✉️ <a href="/cdn-cgi/l/email-protection#30555c4951430103070770575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="acc9c0d5cddf9d9f9b9beccbc1cdc5c082cfc3c1">[email&#160;protected]</span></a>
         </p>
 
         <div class="socials">
           <a href="https://t.me/esr_research_group_admin" target="_blank" class="social-btn tg">
             <i class="fab fa-telegram"></i>
             تلگرام: @esr_research_group_admin
+          </a>
+          <a href="https://ble.ir/esr_research_group_admin" target="_blank" rel="noopener noreferrer" class="social-btn bale">
+            <img class="bale-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bale_logo.png/64px-Bale_logo.png" alt="لوگوی بله" loading="lazy">
+            بله: @esr_research_group_admin
           </a>
           <a href="https://instagram.com/sadooghi_rad" target="_blank" class="social-btn ig">
             <i class="fab fa-instagram"></i>
@@ -493,7 +532,7 @@
     </div>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ==================== CONFIG ====================
     // بعد از ساخت پروژه Supabase این دو مقدار را جایگزین کنید
     const SUPABASE_URL = 'https://ukkekoyyqsvfnibakivv.supabase.co';
